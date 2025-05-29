@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt | Tomáš Pospíchal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+</head>
+<body>
+
+<section class="hero kontakt-hero">
+  <div class="hero-overlay">
+    <header class="main-header">
+      <nav class="nav-wrapper">
+        <ul class="nav-left">
+          <li><a href="index.html">Úvod</a></li>
+          <li><a href="#">O mně</a></li>
+          <li><a href="#">Technika</a></li>
+        </ul>
+        <div class="logo">
+          <img src="images/logo_jmeno.png" alt="Tomáš TOP Pospíchal" />
+        </div>
+        <ul class="nav-right">
+          <li><a href="#">Foto</a></li>
+          <li><a href="#">Video</a></li>
+          <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hero-content">
+      <h1>Kontakt</h1>
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section">
+  <div class="form-wrapper">
+    <form id="contactForm" class="modern-form">
+      <h2>Napište mi</h2>
+
+      <div class="form-group">
+        <label for="name">Jméno a příjmení</label>
+        <input type="text" id="name" name="from_name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="from_email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Mám zájem o</label>
+        <div class="radio-group">
+          <label><input type="radio" name="topic" value="Svatba" required /> Svatba</label>
+          <label><input type="radio" name="topic" value="Ples" /> Maturitní ples</label>
+          <label><input type="radio" name="topic" value="Sport" /> Sportovní událost</label>
+          <label><input type="radio" name="topic" value="Portrét" /> Portréty</label>
+          <label><input type="radio" name="topic" value="Akce" /> Akce</label>
+          <label><input type="radio" name="topic" value="Video" /> Video</label>
+          <label><input type="radio" name="topic" value="Jiné" /> Jiné</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Zpráva</label>
+        <textarea id="message" name="message" rows="5"></textarea> <!-- zpráva není required -->
+      </div>
+
+      <button type="submit" class="btn-submit">Odeslat</button>
+      <p id="formMsg" class="form-message"></p>
+    </form>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("aBHu91NVnjcalKM1w"); // nahraď svým public key
+
+    const form = document.getElementById("contactForm");
+    const formMsg = document.getElementById("formMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const topic = document.querySelector('input[name="topic"]:checked');
+
+      if (!name || !email || !topic) {
+        showMessage("Vyplňte prosím všechna povinná pole.", "error");
+        return;
+      }
+
+      if (!email.includes("@")) {
+        showMessage("Zadejte platný e-mail.", "error");
+        return;
+      }
+
+      emailjs.send("service_9m5ehp8", "template_7k3y9lh", {
+        from_name: name,
+        from_email: email,
+        message: message,
+        topic: topic.value
+      }).then(function () {
+        showMessage("✅ Zpráva byla úspěšně odeslána!", "success");
+        form.reset();
+      }, function () {
+        showMessage("❌ Nastala chyba při odesílání. Zkuste to znovu.", "error");
+      });
+    });
+
+    function showMessage(text, type) {
+      formMsg.textContent = text;
+      formMsg.className = "form-message " + type;
+      formMsg.style.display = "block";
+
+      setTimeout(() => {
+        formMsg.style.display = "none";
+      }, 6000);
+    }
+  });
+</script>
+
+</body>
+</html>
