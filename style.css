@@ -5,7 +5,10 @@
   box-sizing: border-box;
 }
 
-
+li a {
+  color: white;         /* nebo jiná barva */
+  text-decoration: none;
+}
 
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -21,6 +24,12 @@ body {
   color: white;
 }
 
+.herokontakt {
+  position: relative;
+  height: 55vh;
+  background: url("images/DSC06113.jpg") center/cover no-repeat;
+  color: white;
+}
 .hero-overlay {
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
@@ -204,13 +213,15 @@ body {
   aspect-ratio: 2 / 3;
   grid-column: span 2;
   max-height: 800px;
+  width: 100%;
 }
 
-/* === LANDSCAPE: zabere 3 sloupce z 6 (1/2 šířky) === */
+/* LANDSCAPE – 1/2 šířky (3 z 6 sloupců) */
 .gallery a.landscape {
   aspect-ratio: 3 / 2;
   grid-column: span 3;
-  max-height: 300px;
+  max-height: 500px;
+  width: 100%;
 }
 
 /* === RESPONSIVE: menší obrazovky === */
@@ -227,7 +238,7 @@ body {
 
 
 .main-footer {
-  background: #000;
+  background-color: #000;
   color: #fff;
   padding: 3rem 2rem;
 }
@@ -235,69 +246,90 @@ body {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: flex-start;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .footer-left {
-  flex: 1;
-  min-width: 250px;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo-col {
+  flex-shrink: 0;
 }
 
 .footer-logo {
-  max-width: 100px;
-  margin-bottom: 1rem;
+  width: 100px;
+  height: auto;
 }
 
-.footer-info {
+.footer-socials {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.95rem;
 }
 
-.footer-info li {
+.footer-socials li {
   display: flex;
   align-items: center;
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
+  gap: 0.6rem;
 }
 
-.footer-info img {
+.footer-socials img {
   width: 20px;
-  margin-right: 0.5rem;
+  height: 20px;
 }
 
 .footer-right {
-  flex: 1;
-  min-width: 250px;
   text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+  max-width: 300px;
 }
 
 .footer-right p {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .footer-btn {
-  background: #fff;
+  display: inline-block;
+  background-color: #fff;
   color: #000;
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  display: inline-block;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .footer-btn:hover {
-  background: #eee;
+  background-color: #ff9cd3;
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+}
+
 
 /* Responsivita */
 @media (max-width: 768px) {
@@ -344,20 +376,106 @@ body {
   text-align: center;
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
+    .contact-form-section {
+      background-color: #061635;
+      padding: 4rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-wrapper {
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .form-wrapper h2 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: #0a2742;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #fefefe;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #0a2742;
+      box-shadow: 0 0 0 3px rgba(10, 39, 66, 0.15);
+      outline: none;
+    }
+
+    .btn-submit {
+      background-color: #0a2742;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background-color: #12385c;
+    }
+
+    @media (max-width: 600px) {
+      .form-wrapper {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+
+@media (max-width: 600px) {
+  .radio-group {
+    grid-template-columns: 1fr;
+  }
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem 1rem;
+  padding-top: 0.5rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+input[type="date"] {
   width: 100%;
   padding: 0.9rem 1rem;
   border: 1px solid #ccc;
@@ -367,65 +485,12 @@ textarea {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input:focus,
-textarea:focus {
+input[type="date"]:focus {
   border-color: #0a2742;
   box-shadow: 0 0 0 3px rgba(10, 39, 66, 0.15);
   outline: none;
 }
 
-.radio-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.4rem 1rem;
-  font-size: 0.95rem;
-}
-
-.radio-group input {
-  margin-right: 0.5rem;
-}
-
-.btn-submit {
-  background-color: #0a2742;
-  color: #fff;
-  padding: 0.9rem 2rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%;
-}
-
-.btn-submit:hover {
-  background-color: #12385c;
-}
-
-.form-message {
-  margin-top: 1rem;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  display: none;
-}
-
-.form-message.success {
-  background-color: #e8fce8;
-  color: #2d702d;
-}
-
-.form-message.error {
-  background-color: #fde8e8;
-  color: #b30000;
-}
-
-@media (max-width: 600px) {
-  .radio-group {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 /* Responzivita */
