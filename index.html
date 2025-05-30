@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,82 +10,104 @@
   <!-- GLightbox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
-<body>
 
-<section class="hero">
-  <div class="hero-overlay">
-    <header class="main-header">
-      <nav class="nav-wrapper">
-        <ul class="nav-left">
-          <li><a href="#" class="active">Úvod</a></li>
-          <li><a href="#">O mně</a></li>
-          <li><a href="#">Technika</a></li>
-        </ul>
+<body class="kontakt">
 
-        <div class="logo">
-          <img src="images/logo_jmeno.png" alt="Tomáš TOP Pospíchal" />
-        </div>
+  <section class="hero">
+    <div class="hero-overlay">
+      <header class="main-header">
+        <nav class="nav-wrapper">
+          <ul class="nav-left">
+            <li><a href="#" class="active">Úvod</a></li>
+            <li><a href="#">O mně</a></li>
+            <li><a href="#">Technika</a></li>
+          </ul>
 
-        <ul class="nav-right">
-          <li><a href="#">Foto</a></li>
-          <li><a href="#">Video</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+          <div class="logo">
+            <img src="images/logo_jmeno.png" alt="Tomáš TOP Pospíchal" />
+          </div>
 
-    <div class="hero-content">
-      <h1>Zachyťte své okamžiky<br>ve fotografiích i videu.</h1>
-      <a href="kontakt.html" class="btn">DOMLUVME SE</a>
+          <ul class="nav-right">
+            <li><a href="#">Foto</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="hero-content">
+        <h1>Zachyťte své okamžiky<br>ve fotografiích i videu.</h1>
+        <a href="kontakt.html" class="btn">DOMLUVME SE</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="highlight">
-  <div class="highlight-content">
-    <h2>Nejlepší práce</h2>
-  </div>
-  <div class="gallery">
+  <section class="highlight">
+    <div class="highlight-content">
+      <h2>Nejlepší práce</h2>
+    </div>
+    <div class="gallery">
       <a href="images/8lex.jpg" class="glightbox portrait" data-gallery="prace">
-    <img src="images/8lex.jpg" alt="Portrét 1">
-  </a>
-  <a href="images/DSC08067.jpg" class="glightbox portrait" data-gallery="prace">
-    <img src="images/DSC08067.jpg" alt="Portrét 2">
-  </a>
-  </div>
-</section>
-
-<!-- GLightbox JS -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    autoplayVideos: true,
-    loop: true,
-    slideShowInterval: 3000, // slideshow každé 3 sekundy
-    autoplay: true
-  });
-</script>
-
-<footer class="main-footer">
-  <div class="footer-container">
-    <div class="footer-left">
-      <img src="images/logo_jmeno.png" alt="Logo TOP" class="footer-logo">
-      <ul class="footer-info">
-        <li><img src="icons/instagram.svg" alt="IG"> pospi.arw</li>
-        <li><img src="icons/facebook.svg" alt="FB"> Tomáš Pospíchal</li>
-        <li><img src="icons/email.svg" alt="Email"> tomaspospichal03@gmail.com</li>
-        <li><img src="icons/linkedin.svg" alt="LinkedIn"> Tomáš Pospíchal</li>
-        <li>IČ: 21368490</li>
-      </ul>
+        <img src="images/8lex.jpg" alt="Portrét 1">
+      </a>
+      <a href="images/7lev.jpg" class="glightbox portrait" data-gallery="prace">
+        <img src="images/7lev.jpg" alt="Portrét 2">
+      </a>
+      <a href="images/2.2.8A8-340.jpg" class="glightbox portrait" data-gallery="prace">
+        <img src="images/2.2.8A8-340.jpg" alt="Portrét 4">
+      </a>
+      <a href="images/DJI_20240701120749_0309_D_E01.jpg" class="glightbox landscape" data-gallery="prace">
+        <img src="images/DJI_20240701120749_0309_D_E01.jpg" alt="Portrét 3">
+      </a>
+      </a>
+      <a href="images/3budapest.jpg" class="glightbox landscape" data-gallery="prace">
+        <img src="images/3budapest.jpg" alt="Portrét 5">
+      </a>
     </div>
-    <div class="footer-right">
-      <p><strong>MÁTE NÁPAD? POJĎME HO<br> SPOLEČNĚ VYTVOŘIT!</strong></p>
-      <a href="mailto:tomaspospichal03@gmail.com" class="footer-btn">NAPIŠTE MI!</a>
+  </section>
+
+  <!-- GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      autoplayVideos: true,
+      loop: true,
+      slideShowInterval: 3000, // slideshow každé 3 sekundy
+      autoplay: true
+    });
+  </script>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="images/logo_jmeno.png" alt="Logo TOP" class="footer-logo">
+        <ul class="footer-socials">
+          <li>
+            <img src="icons/instagram_white.png" alt="IG">
+            <a href="https://www.instagram.com/pospi.arw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank">pospi.arw</a>
+          </li>
+          <li><img src="icons/facebook_white.png" alt="FB"> <a
+              href="https://www.facebook.com/profile.php?id=100013877715454&locale=cs_CZ" target="_blank">Tomáš
+              Pospíchal</a></li>
+          <li><img src="icons/email_white.png" alt="Email"> <a
+              href="mailto:tomaspospichal03@gmail.com">tomaspospichal03@gmail.com</a></li>
+          <li><img src="icons/linkedin_white.png" alt="LinkedIn"><a
+              href="https://www.linkedin.com/in/tomáš-pospíchal-3502082b2/" target="_blank"> Tomáš Pospíchal</a></li>
+          <li>IČ: 21368490</li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <p><strong>MÁTE NÁPAD? POJĎME HO<br> SPOLEČNĚ VYTVOŘIT!</strong></p>
+        <a href="mailto:tomaspospichal03@gmail.com" class="footer-btn">NAPIŠTE MI!</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>>
+  </footer>
+
 
 
 </body>
+
 </html>
