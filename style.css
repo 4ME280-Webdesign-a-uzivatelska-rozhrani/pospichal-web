@@ -513,3 +513,48 @@ input[type="date"]:focus {
   }
 }
 
+/* Základní struktura */
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
+
+/* Skrytí hamburgeru ve velkých rozlišeních */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobilní menu */
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1em;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
